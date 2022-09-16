@@ -18,4 +18,5 @@ public class StudentRequest {
   private String programCode;
   private String gender;
   private String adhaar;
+  private String contactNumber;
 }

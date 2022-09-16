@@ -1,10 +1,10 @@
-package org.prvn.labs.student.manage.domain.dto;
+package org.prvn.labs.student.manage.ui.response;
 
 import java.util.Date;
 import lombok.Data;
 
 @Data
-public class StudentDto {
+public class StudentResponse {
   private Integer studentId;
   private String firstName;
   private String middleName;

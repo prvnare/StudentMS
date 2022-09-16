@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: StudentManagementService
+  data:
+    mongodb:
+      uri: mongodb+srv://prvn:prvn@cluster0.xyiokdu.mongodb.net/?retryWrites=true&w=majority
+      database: studentDemographics
