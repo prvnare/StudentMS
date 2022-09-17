@@ -1,9 +1,7 @@
-# CircleCI configuration file
-version: 2.1
-jobs:
-  build:
-    docker:
-      - image: circleci/openjdk:11.0.3-jdk-stretch
-    steps:
-      - checkout
-      - run: gradle build
+version: '2.1'
+orbs:
+  gradle: circleci/gradle@x.y
+workflows:
+  checkout-build-test:
+    jobs:
+      - gradle/test
