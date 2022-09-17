@@ -36,6 +36,7 @@ public class StudentController {
     log.info("registering the student with details : {}" , student);
     StudentDto studentDto = ModelMapper.MAPPER.fromStudentRequestToDto(student);
     studentDto = studentService.registerStudent(studentDto);
+    log.info("Registration is completed with student id : {} ", studentDto.getStudentId());
     return new ResponseEntity<>(ModelMapper.MAPPER.fromStudentDtoToResponse(studentDto),HttpStatus.CREATED);
   }
 
@@ -47,13 +48,19 @@ public class StudentController {
 
   @GetMapping("/{studentId}")
   public ResponseEntity<StudentResponse> getStudentDetailsByStudentId(@PathVariable String studentId){
+    StudentRequestValidator.validateStudentID(studentId);
+    log.info("fetching the student details for student id : {}", studentId );
     StudentDto registeredStudentDetails = studentService.getRegisteredStudentDetailsById(studentId);
+    log.info("student details for the student id :  {} --> {}", studentId, registeredStudentDetails);
     return  new ResponseEntity<>(ModelMapper.MAPPER.fromStudentDtoToResponse(registeredStudentDetails),HttpStatus.OK);
   }
 
   @DeleteMapping("/{studentId}")
   public ResponseEntity<StudentResponse> unregisterStudent(@PathVariable String studentId){
+    StudentRequestValidator.validateStudentID(studentId);
+    log.info("unregistering the student details for student id : {}", studentId );
     StudentDto registeredStudentDetails = studentService.unRegisteredStudentDetailsById(studentId);
+    log.info(" unregistered the student details for student id :  {} --> {}", studentId, registeredStudentDetails);
     return  new ResponseEntity<>(ModelMapper.MAPPER.fromStudentDtoToResponse(registeredStudentDetails),HttpStatus.OK);
   }
 
