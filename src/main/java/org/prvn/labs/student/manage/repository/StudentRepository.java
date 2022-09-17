@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface StudentRepository extends MongoRepository<Student,String> {
 
   Student findByStudentId(Integer studentId);
-
+  Student deleteByStudentId(Integer studentId);
 }

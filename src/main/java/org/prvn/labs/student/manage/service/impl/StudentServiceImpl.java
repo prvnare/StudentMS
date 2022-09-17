@@ -10,6 +10,7 @@ import org.prvn.labs.student.manage.domain.dto.StudentDto;
 import org.prvn.labs.student.manage.domain.entity.Counter;
 import org.prvn.labs.student.manage.domain.entity.Student;
 import org.prvn.labs.student.manage.exception.BusinessException;
+import org.prvn.labs.student.manage.exception.ValidationException;
 import org.prvn.labs.student.manage.mapper.ModelMapper;
 import org.prvn.labs.student.manage.repository.CounterRepository;
 import org.prvn.labs.student.manage.repository.StudentRepository;
@@ -70,5 +71,15 @@ public class StudentServiceImpl implements StudentService {
       throw new BusinessException("9001","No Student record found with student id : "+ studentId,"Process completed without response",HttpStatus.OK);
     }
     return ModelMapper.MAPPER.fromStudentEntityToDto(student);
+  }
+
+  @Override
+  public StudentDto unRegisteredStudentDetailsById(String studentId) {
+    Student byStudentId = studentRepository.findByStudentId(Integer.parseInt(studentId));
+    if(Objects.isNull(byStudentId)){
+      throw new ValidationException("9001","No Student record found with student id : "+ studentId,"Process completed without unregister",HttpStatus.OK);
+    }
+    studentRepository.deleteByStudentId(Integer.parseInt(studentId));
+    return ModelMapper.MAPPER.fromStudentEntityToDto(byStudentId);
   }
 }
