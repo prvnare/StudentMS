@@ -16,6 +16,7 @@ public interface ModelMapper {
 
   ModelMapper MAPPER = Mappers.getMapper( ModelMapper.class );
 
+  @Mapping(target = "studentId", ignore = true)
   StudentDto fromStudentRequestToDto(StudentRequest studentDto);
 
   @Mapping(target = "id", ignore = true)
