@@ -10,6 +10,7 @@ import org.prvn.labs.student.manage.ui.response.StudentResponse;
 import org.prvn.labs.student.manage.validator.StudentRequestValidator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,15 +41,19 @@ public class StudentController {
 
   @GetMapping
   public ResponseEntity<List<StudentResponse>> getStudentDetails(){
-    log.info("fetching the student details :  ");
     List<StudentDto> registeredStudentDetails = studentService.getRegisteredStudentDetails();
     return  new ResponseEntity<>(ModelMapper.MAPPER.fromStudentDtoToResponse(registeredStudentDetails),HttpStatus.OK);
   }
 
   @GetMapping("/{studentId}")
   public ResponseEntity<StudentResponse> getStudentDetailsByStudentId(@PathVariable String studentId){
-    log.info("fetching the student details :  ");
     StudentDto registeredStudentDetails = studentService.getRegisteredStudentDetailsById(studentId);
+    return  new ResponseEntity<>(ModelMapper.MAPPER.fromStudentDtoToResponse(registeredStudentDetails),HttpStatus.OK);
+  }
+
+  @DeleteMapping("/{studentId}")
+  public ResponseEntity<StudentResponse> unregisterStudent(@PathVariable String studentId){
+    StudentDto registeredStudentDetails = studentService.unRegisteredStudentDetailsById(studentId);
     return  new ResponseEntity<>(ModelMapper.MAPPER.fromStudentDtoToResponse(registeredStudentDetails),HttpStatus.OK);
   }
 

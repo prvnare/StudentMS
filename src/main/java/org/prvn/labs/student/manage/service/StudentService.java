@@ -10,4 +10,6 @@ public interface StudentService {
   List<StudentDto> getRegisteredStudentDetails();
 
   StudentDto getRegisteredStudentDetailsById(String studentId);
+
+  StudentDto unRegisteredStudentDetailsById(String studentId);
 }
