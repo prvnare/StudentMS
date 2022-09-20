@@ -1,6 +1,6 @@
-package org.prvn.labs.student.manage.repository;
+package org.prvn.labs.student.manage.repository.mongo;
 
-import org.prvn.labs.student.manage.domain.entity.Student;
+import org.prvn.labs.student.manage.domain.entity.mongo.Student;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

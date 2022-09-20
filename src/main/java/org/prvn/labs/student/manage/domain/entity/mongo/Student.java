@@ -1,4 +1,4 @@
-package org.prvn.labs.student.manage.domain.entity;
+package org.prvn.labs.student.manage.domain.entity.mongo;
 
 import java.util.Date;
 import lombok.Data;

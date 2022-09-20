@@ -5,8 +5,13 @@ spring:
     mongodb:
       uri: mongodb+srv://prvn:prvn@cluster0.xyiokdu.mongodb.net/?retryWrites=true&w=majority
       database: studentDemographics
+  datasource:
+    url: jdbc:mysql://localhost:3306/schoolmanagement
+    username: root
+    password: password
 sentry:
   dsn: https://de3ef1e24ebe489db2cb7ed5315642d2@o528532.ingest.sentry.io/6754588
   # Set traces-sample-rate to 1.0 to capture 100% of transactions for performance monitoring.
   # We recommend adjusting this value in production.
   traces-sample-rate: 1.0
+key: 123123

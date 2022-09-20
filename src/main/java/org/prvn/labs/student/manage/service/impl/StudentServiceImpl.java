@@ -8,12 +8,12 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.prvn.labs.student.manage.constant.AppEnum;
 import org.prvn.labs.student.manage.domain.dto.StudentDto;
-import org.prvn.labs.student.manage.domain.entity.Counter;
-import org.prvn.labs.student.manage.domain.entity.Student;
+import org.prvn.labs.student.manage.domain.entity.mongo.Counter;
+import org.prvn.labs.student.manage.domain.entity.mongo.Student;
 import org.prvn.labs.student.manage.exception.BusinessException;
 import org.prvn.labs.student.manage.mapper.ModelMapper;
-import org.prvn.labs.student.manage.repository.CounterRepository;
-import org.prvn.labs.student.manage.repository.StudentRepository;
+import org.prvn.labs.student.manage.repository.mongo.CounterRepository;
+import org.prvn.labs.student.manage.repository.mongo.StudentRepository;
 import org.prvn.labs.student.manage.service.StudentService;
 import org.springframework.stereotype.Service;
 
